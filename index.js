@@ -100,13 +100,14 @@ class Car {
     return this.tank = this.tank + gallons;
   }
   drive(distance){
-    if (distance > 0){
+    const totalMileage = this.tank * this.milesPerGallon;
+   if (distance <= totalMileage){
       this.odometer = this.odometer + distance;
+      this.tank = this.tank - (distance / this.milesPerGallon);
     }
-    else if (this.milesPerGallon = (distance / gallons) && this.milesPerGallon > 0){
-      this.tank = this.tank - distance;
-    }
-    else if (this.tank <= 0){
+    else if (distance > totalMileage){
+      this.tank = 0;
+      this.odometer = totalMileage;
       return `I ran out of fuel at ${distance} miles! ${distance} being ${this.odometer}`;
     }
     }
@@ -174,15 +175,7 @@ class Instructor extends Lambdasian {
   }
 }
 
-const hailey = new Instructor({
-  name: 'Hailey',
-  age: 29,
-  location: 'Texas',
-  specialty: 'English',
-  favLanguage: 'French',
-  catchPhrase: 'YOLO!'
-});
-console.log(hailey.demo);
+
 /*
   TASK 5
     - Write a Student class extending Lambdasian.
