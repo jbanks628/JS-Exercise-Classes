@@ -42,8 +42,38 @@ class Airplane {
 */
 
 class Person {
-  
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
+  eat(edible){
+    if (this.stomach.length < 10){
+  return this.stomach.push(edible);
+  }
 }
+  poop(){
+    return this.stomach = [];
+  }
+  toString(){
+    return `${this.name}, ${this.age}`
+  }
+}
+const jada = new Person('Jada', 26);
+console.log(jada.toString());
+
+jada.eat('Pasta');
+jada.eat('Pineapples');
+jada.eat('Vegan Chikn');
+jada.eat('Chocolate');
+jada.eat('Salad');
+jada.eat('Rolls');
+jada.eat('Veggies');
+
+console.log('Jada stomach', jada.stomach);
+console.log(jada.poop());
+console.log('Jada stomach after using the bathroom', jada.stomach);
+
 
 /*
   TASK 2
@@ -60,8 +90,31 @@ class Person {
 */
 
 class Car {
-  
-}
+  constructor(model, milesPerGallon){
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons){
+    return this.tank = this.tank + gallons;
+  }
+  drive(distance){
+    if (distance > 0){
+      this.odometer = this.odometer + distance;
+    }
+    else if (this.milesPerGallon = (distance / gallons) && this.milesPerGallon > 0){
+      this.tank = this.tank - distance;
+    }
+    else if (tank <= 0){
+      return `I ran out of fuel at ${distance} miles! ${distance} being ${this.odometer}`;
+    }
+    }
+  }
+
+   const camry = new Car('Toyota Camry', 300);
+
+
 
 /*
   TASK 3
@@ -76,9 +129,22 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  
-}
+  constructor(attr){
+    this.name = attr.name;
+    this.age = attr.age;
+    this.location = attr.location;
+  }
+  speak(){
+    return `Hello my name is ${this.name}, I am from ${this.location}`;
+  }
+};
 
+const rob = new Lambdasian({
+  name:'Rob',
+  age: 34,
+  location: 'Spain'
+});
+console.log(rob.speak());
 /*
   TASK 4
     - Write an Instructor class extending Lambdasian.
@@ -93,9 +159,17 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
+class Instructor extends Lambdasian {
+  constructor(attr){
+    super(attr);
+    this.specialty = attr.specialty;
+    this.favLanguage = attr.favLanguage;
+    this.cathcPhrase = attr.catchPhrase;
+  }
+  }
 
-}
+  
+
 /*
   TASK 5
     - Write a Student class extending Lambdasian.
